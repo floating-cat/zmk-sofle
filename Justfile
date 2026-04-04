@@ -6,7 +6,7 @@ default:
 config := absolute_path('config')
 build := absolute_path('.build')
 out := absolute_path('firmware')
-draw := absolute_path('draw')
+draw := absolute_path('keymap-drawer')
 
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
@@ -59,9 +59,9 @@ clean-nix:
 draw:
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/base.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
-    yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -j "{{ draw }}/sofle.json" >"{{ draw }}/base.svg"
+    keymap -c "{{ draw }}/keymap_drawer.config.yaml" parse -z "{{ config }}/eyelash_sofle.keymap" --virtual-layers Combos >"{{ draw }}/eyelash_sofle.yaml"
+    yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/eyelash_sofle.yaml"
+    keymap -c "{{ draw }}/keymap_drawer.config.yaml" draw "{{ draw }}/eyelash_sofle.yaml" -j "{{ draw }}/eyelash_sofle.json" >"{{ draw }}/eyelash_sofle.svg"
 
 # initialize west
 init:

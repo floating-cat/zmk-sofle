@@ -1,11 +1,11 @@
-name: Draw Keymap
+name: Draw ZMK keymaps
 on:
   workflow_dispatch:
   push:
     paths:
       - "config/**"
       - .github/workflows/draw.yml
-      - keymap_drawer.config.yaml
+      - keymap-drawer/keymap_drawer.config.yaml
 
 jobs:
   draw:
@@ -14,5 +14,3 @@ jobs:
       contents: write
     with:
       commit_message: "[Draw] ${{ github.event.head_commit.message }}"
-      destination: "commit"
-      fail_on_error: ${{ fromJSON(true) }}

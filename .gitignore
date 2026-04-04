@@ -3,6 +3,9 @@
 /.west/
 /eyelash_sofle/
 /firmware/
+/mario-peripheral-animation/
 /modules/
 /zephyr/
 /zmk/
+
+/keymap-drawer/eyelash_sofle.yaml

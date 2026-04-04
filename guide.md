@@ -1,4 +1,4 @@
-# 如何使用 Nix 进行构建
+# 使用教程
 
 ## 环境初始化
 
@@ -49,8 +49,6 @@ push:
 打开 GitHub 该项目的 Actions 标签页，点击 `Build ZMK firmware` 或者 `Build ZMK firmware (nix)
 ` 进行构建。
 
----
-
 ## 如何后续更新项目依赖
 
 - 更新 ZMK 仓库及 ZMK 相关依赖模块：
@@ -64,9 +62,6 @@ push:
   ```
 
 更多 Nix 使用方式可以参考：https://github.com/urob/zmk-config?tab=readme-ov-file#local-build-environment (本项目的 Nix 脚本基于该项目)
-
-
----
 
 ## 键盘布局图片更新方式
 
@@ -91,8 +86,6 @@ push:
     - .github/workflows/draw.yml
     - keymap-drawer/keymap_drawer.config.yaml
 ```
-
----
 
 ## 项目说明
 

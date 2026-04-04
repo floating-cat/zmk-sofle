@@ -9,7 +9,7 @@
 
 buildPythonPackage rec {
   pname = "tree-sitter-devicetree";
-  version = "0.15.0";
+  version = "0.14.1";
   pyproject = true;
 
   src = fetchFromGitHub {

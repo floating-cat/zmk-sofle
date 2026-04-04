@@ -1,5 +1,8 @@
-build/
-zmk/
-modules/
-tools/
-.west/
+/.build/
+/.direnv/
+/.west/
+/eyelash_sofle/
+/firmware/
+/modules/
+/zephyr/
+/zmk/

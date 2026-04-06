@@ -6,7 +6,6 @@ on:
       - "config/**"
       - .github/workflows/draw.yml
       - keymap-drawer/keymap_drawer.config.yaml
-
 jobs:
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main

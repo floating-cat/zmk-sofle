@@ -9,7 +9,6 @@ manifest:
       remote: zmkfirmware
       revision: v0.3.0
       import: app/west.yml
-
     # Only source necessary Zephyr modules. Remove this entire section to restore
     # the default (needed for less common hardware).
     - name: zephyr
@@ -22,14 +21,11 @@ manifest:
           - hal_nordic
           - lvgl
           - tinycrypt
-
     - name: eyelash_sofle
       url: https://github.com/a741725193/zmk-sofle
       revision: main
-
-    # - name: mario-peripheral-animation
-    #   remote: gpeye
-    #   revision: main
-
+      # - name: mario-peripheral-animation
+      #   remote: gpeye
+      #   revision: main
   self:
     path: config

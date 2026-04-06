@@ -118,7 +118,7 @@
             firmware = firmware-left;
 
             # Default: all three firmware files in one directory with distinct names.
-            default = pkgs.runCommandLocal "collect-res" {} ''
+            default = pkgs.runCommandLocal "collect-res" { } ''
               mkdir -p $out
               cp ${firmware-left}/zmk.uf2 $out/eyelash_sofle_studio_left.uf2
               cp ${firmware-right}/zmk.uf2 $out/nice_view-eyelash_sofle_right.uf2

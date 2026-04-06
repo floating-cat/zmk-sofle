@@ -81,7 +81,6 @@
               board = "eyelash_sofle_left";
               shield = "nice_view";
               enableZmkStudio = true;
-              extraCmakeFlags = [ "-DCONFIG_ZMK_STUDIO_LOCKING=n" ];
               meta = {
                 description = "Eyelash Sofle left half firmware (ZMK Studio)";
                 license = lib.licenses.mit;
@@ -115,24 +114,16 @@
               };
             };
 
+            # Alias expected by zmk-nix's update/flash scripts.
+            firmware = firmware-left;
+
             # Default: all three firmware files in one directory with distinct names.
-            default =
-              let
-                rename =
-                  drv: filename:
-                  pkgs.runCommand filename { } ''
-                    mkdir -p $out
-                    cp ${drv}/zmk.uf2 $out/${filename}
-                  '';
-              in
-              pkgs.symlinkJoin {
-                name = "eyelash-sofle-firmware";
-                paths = [
-                  (rename firmware-left "eyelash_sofle_left.uf2")
-                  (rename firmware-right "eyelash_sofle_right.uf2")
-                  (rename firmware-reset "settings_reset.uf2")
-                ];
-              };
+            default = pkgs.runCommandLocal "collect-res" {} ''
+              mkdir -p $out
+              cp ${firmware-left}/zmk.uf2 $out/eyelash_sofle_studio_left.uf2
+              cp ${firmware-right}/zmk.uf2 $out/nice_view-eyelash_sofle_right.uf2
+              cp ${firmware-reset}/zmk.uf2 $out/settings_reset-nice_nano_v2.uf2
+            '';
           };
 
           # ── Dev shells ────────────────────────────────────────────────────────

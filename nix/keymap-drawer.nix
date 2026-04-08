@@ -1,22 +1,21 @@
 # forked from https://github.com/urob/zmk-config/blob/main/nix/keymap-drawer.nix
-{
-  lib,
-  buildPythonApplication,
-  buildPythonPackage,
-  callPackage,
-  fetchFromGitHub,
-  setuptools,
-  poetry-core,
-  pydantic,
-  pyparsing,
-  pcpp,
-  pyyaml,
-  platformdirs,
-  pydantic-settings,
-  tree-sitter,
+{ lib
+, buildPythonApplication
+, buildPythonPackage
+, callPackage
+, fetchFromGitHub
+, setuptools
+, poetry-core
+, pydantic
+, pyparsing
+, pcpp
+, pyyaml
+, platformdirs
+, pydantic-settings
+, tree-sitter
 }:
 let
-  tree-sitter-devicetree = callPackage ./tree-sitter-devicetree.nix { };
+  tree-sitter-devicetree = callPackage ./tree-sitter-devicetree.nix {};
 in
 buildPythonApplication rec {
   pname = "keymap-drawer";
